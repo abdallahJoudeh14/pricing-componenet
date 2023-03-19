@@ -22,11 +22,10 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100vh;
     background-color: var(--VeryPaleBlue);
-    background-image: url("/images/bg-pattern.svg");
+    background-image: url("../images/bg-pattern.svg");
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 100% 50%;
@@ -34,7 +33,7 @@ body{
 }
 
 .contaniner header{
-    background-image: url("/images/pattern-circles.svg");
+    background-image: url("../images/pattern-circles.svg");
     background-repeat: no-repeat;
     background-position: center ;
     text-align: center;
@@ -113,7 +112,7 @@ body{
     height: 35px;
     border-radius: 50%;
     background-color: var(--StrongCyan);
-    background-image: url("/images/icon-slider.svg");
+    background-image: url("../images/icon-slider.svg");
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: 0 5px 25px var(--SoftCyan),
