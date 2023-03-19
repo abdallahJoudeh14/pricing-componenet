@@ -20,6 +20,7 @@
 }
 body{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -29,6 +30,7 @@ body{
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 100% 50%;
+    padding: 0 30px;
 }
 
 .contaniner header{
@@ -39,13 +41,18 @@ body{
     padding: 70px 0;
 }
 .contaniner header h1{
+    font-size: clamp(1.2rem, 5vw , 2rem);
     color: var(--DarkDesaturatedBlue);
     line-height: 2;
 }
-.contaniner header p{
+.contaniner header > div{
+    display: flex;
+    justify-content: center;
     color: var(--GrayishBlue);
     font-size: 15px;
+    gap: 5px;
 }
+
 .contaniner .pricingPlanComponent{
     position: relative;
     padding: 30px 35px;
@@ -53,36 +60,44 @@ body{
     border-radius: 8px;
     box-shadow: 0px 3px 5px rgba(0,0,0,0.1),
     0px 5px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
 .contaniner .pricingPlanComponent .infoComponent{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+    width: 450px;
+
 }
 
 .firstChild{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2 ,50px);
+    row-gap: .5rem;
     justify-content: space-between;
     align-items: center;
     color: var(--GrayishBlue);
     width: 100%;
-    column-gap: 5rem;
 }
 .firstChild .pageViewComponent{
     text-transform: uppercase;
     letter-spacing: .1em;
     font-weight: 800;
 }
+.firstChild .priceComponent{
+    text-align: end;
+}
 .firstChild .priceComponent .price{
     font-size: 35px;
     font-weight: 800; 
-    color: var(--DarkDesaturatedBlue);   
-
+    color: var(--DarkDesaturatedBlue);
 }
+
 .quantity{
-    width: 100%;
+    grid-column: 2 span;
 }
 .rangeBar{
     appearance: none;
@@ -98,11 +113,12 @@ body{
     height: 35px;
     border-radius: 50%;
     background-color: var(--StrongCyan);
-    background-image: url("images/icon-slider.svg");
+    background-image: url("/images/icon-slider.svg");
     background-repeat: no-repeat;
     background-position: center;
-    box-shadow: 0 5px 25px var(--SoftCyan);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 25px var(--SoftCyan),
+                0 5px 25px var(--SoftCyan),
+                0 15px 25px var(--SoftCyan);
 }
 .rangeBar:active::-webkit-slider-thumb{
     background-color: var(--SoftCyan);
@@ -118,22 +134,31 @@ body{
 
 .billingType p{
     color: var(--GrayishBlue);
-    font-size: 14px;
+    font-size: clamp(10px, 3vw, 14px);
+    white-space: nowrap;
+
 }
-.discount{
-    padding: 5px 10px ;
+.billingType p:last-child{
+    position: relative;
+}
+.billingType p:last-child:after{
+    content: "25% discount";
+    position: relative;
+    padding: 5px clamp(5px, 1vw, 10px) ;
     background-color: var(--LightGrayishRed);
     border-radius: 25px;
     color: var(--LightRed) !important;
-    font-size: 12px !important;
+    font-size: clamp(6px, 2vw, 12px) !important;
     font-weight: 800;
+    margin-left: clamp(0.1rem, 1vw, 1rem);
 }
 .billingType .checkbox{
+    appearance: none;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     padding: 0 5px;
     position: relative;
-    appearance: none;
     width: 50px;
     height: 25px;
     border-radius: 25px;
@@ -146,23 +171,25 @@ body{
     position: absolute;
     width: 15px;
     height: 15px;
+    left: 5px;
     border-radius: 50%;
     background-color: var(--White);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 .billingType .checkbox:checked{
     background-color: var(--StrongCyan)
 }
 .billingType .checkbox:checked::before{
-    transform: translateX(170%);
+    left: calc(100% - 20px);
 }
+
 hr{
     position: relative;
     left: -30px;
     border: none;
     width: calc(100% + 60px);
     height: 1px;
-    margin: 20px 0;
+    margin: 30px 0;
     background-color: #ecece1;
     
 }
@@ -171,6 +198,7 @@ hr{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
 
 }
 
@@ -181,6 +209,7 @@ hr{
 }
 .submitPlan ul li{
     list-style: none;
+    white-space: nowrap;
 }
 .submitPlan li span{
     margin-left: 1rem;
@@ -195,4 +224,29 @@ hr{
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
+    white-space: nowrap;
+}
+@media screen and (max-width: 530px){
+    .contaniner .pricingPlanComponent .infoComponent{
+        width: auto;
+    }
+    .firstChild{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,50px);
+        text-align: center;
+    }
+    .firstChild .priceComponent{
+        grid-row: 3;
+        text-align: center;
+    }
+    .submitPlan{
+        text-align: center;;
+        flex-direction: column;
+    }
+    .billingType p:last-child:after{
+        content: "-25%";
+    }
+    .contaniner header > div{
+        flex-direction: column;
+    }
 }
