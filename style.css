@@ -67,7 +67,8 @@ body{
     justify-content: space-between;
     align-items: center;
     color: var(--GrayishBlue);
-    width: 450px;
+    width: 100%;
+    column-gap: 5rem;
 }
 .firstChild .pageViewComponent{
     text-transform: uppercase;
@@ -172,6 +173,26 @@ hr{
     justify-content: space-between;
 
 }
+
 .submitPlan ul{
-    list-style-image: url("images/icon-check.svg");
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+.submitPlan ul li{
+    list-style: none;
+}
+.submitPlan li span{
+    margin-left: 1rem;
+    color: var(--GrayishBlue);
+}
+.submitPlan button{
+    padding: 10px 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--DarkDesaturatedBlue);
+    color: var(--PalBlue);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
 }
