@@ -9,7 +9,7 @@
     --VeryPaleBlue: hsl(230, 100%, 99%);
     --LightGrayishBlue: hsl(224, 65%, 95%);
     --LightGrayishBlue: hsl(223, 50%, 87%);
-    --GrayishBlue: hsl(225, 20%, 60%);
+    --GrayishBlue: hsl(224, 32%, 42%);
     --DarkDesaturatedBlue: hsl(227, 35%, 25%);
 }
 *{
@@ -17,6 +17,13 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "manrope",sans-serif;
+}
+.d_hidden{
+    display: inline-block;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
 }
 body{
     display: flex;
@@ -66,7 +73,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     width: 450px;
 
 }

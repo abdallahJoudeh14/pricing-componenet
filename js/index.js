@@ -1,6 +1,7 @@
 const pageViews = document.querySelector("[data-value]"),
       planePrice = document.querySelector("[data-price]"),
-      range = document.querySelector(".rangeBar");
+      range = document.querySelector(".rangeBar"),
+      checkbox = document.querySelector(".checkbox");
 
 
 const renderPageViews = ()=>{
@@ -11,7 +12,11 @@ const renderPageViews = ()=>{
     planePrice.firstElementChild.textContent = planePrice.dataset.price;
     
     range.style.backgroundImage = `linear-gradient( 90deg , var(--SoftCyan) ${range.value}%,  var(--LightGrayishBlue) ${range.value}%)`;
-}
 
+}
+const checkboxValue = () =>{
+    checkbox.value = checkbox.checked ? "yearly" : "monthly";
+}
+checkbox.addEventListener("change", checkboxValue)
 range.addEventListener("input", renderPageViews);   
-window.addEventListener("load", renderPageViews)
+window.addEventListener("load", renderPageViews);

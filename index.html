@@ -9,40 +9,46 @@
   <title>Frontend Mentor | Interactive pricing component</title>
 </head>
 <body>
-  <div class="contaniner">
-
-    <header>
-      <h1>Simple, traffic-based pricing</h1>
-      <div><p>Sign-up for our 30-day trial.</p><p>No credit card required.</p></div>
-    </header>
-    <div class="pricingPlanComponent">
-      <div class="infoComponent">
-        <div class="firstChild">
-          <div class="pageViewComponent" data-value=""><span class="views">100k</span> pageviews</div>
-          <div class="priceComponent" data-price=""><span class="price">$16.00</span> /month</div>
-          <div class="quantity">
-            <input type="range" name="range" class="rangeBar" min="0" step="25" max="100">
-          </div>
-        </div>
-        
-        <div class="billingType">
-          <p>Monthly Billing</p>
-          <input type="checkbox" name="checkbox" class="checkbox">
-          <p>Yearly Billing</p>
-        </div>
-      </div>
-      <hr>
-      <div class="submitPlan">
-        <ul>
-          <li><img src="images/icon-check.svg"><span>Unlimited websites</span></li>
-          <li><img src="images/icon-check.svg"><span>100% data ownership</span></li>
-          <li><img src="images/icon-check.svg"><span>Email reports</span></li>
-        </ul>
-        <button>Start my trial</button>
-      </div>
-    </div>
-    
+<main>
+    <section class="contaniner">
+      <header>
+        <h1>Simple, traffic-based pricing</h1>
+        <div><p>Sign-up for our 30-day trial.</p><p>No credit card required.</p></div>
+      </header>
+      <form>
+        <section class="pricingPlanComponent">
+          <section class="infoComponent">
+            <div class="firstChild">
+              <div class="pageViewComponent" data-value=""><span class="views">100k</span> pageviews</div>
+              <div class="priceComponent" data-price=""><span class="price">$16.00</span> /month</div>
+              <div class="quantity">
+                <label for="rangebar" class="d_hidden">select page views price plan</label>
+                <input type="range" name="pageview" id="rangebar" class="rangeBar" min="0" step="25" max="100">
+              </div>
+            </div>
+            
+            <div class="billingType">
+              <p>Monthly Billing</p>
+              <label for="checkbox" class="d_hidden">select billing type</label>
+              <input type="checkbox" id="checkbox" name="billing" class="checkbox">
+              <p>Yearly Billing</p>
+            </div>
+          </section>
+          <hr>
+          <section class="submitPlan">
+              <ul>
+                <li><img src="images/icon-check.svg" alt="true"><span>Unlimited websites</span></li>
+                <li><img src="images/icon-check.svg" alt="true"><span>100% data ownership</span></li>
+                <li><img src="images/icon-check.svg" alt="true"><span>Email reports</span></li>
+              </ul>
+            <button>Start my trial</button>
+          </section>
+        </section>
+      </form>
+      
+    </section>
   </div>
-</div>
+</main>
+
 </body>
 </html>
